@@ -16,18 +16,10 @@ document.querySelector(".check").addEventListener("click", function () {
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
     }
-  } else if (guess > number) {
+  } else if (guess !== number) {
     if (score > 1) {
-      document.querySelector(".message").textContent = "Too high!";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".message").textContent = "You loose";
-      document.querySelector(".score").textContent = 0;
-    }
-  } else if (guess < number) {
-    if (score > 1) {
-      document.querySelector(".message").textContent = "Too Low!";
+      document.querySelector(".message").textContent =
+        guess > number ? "Too high!" : "Too low";
       score--;
       document.querySelector(".score").textContent = score;
     } else {
