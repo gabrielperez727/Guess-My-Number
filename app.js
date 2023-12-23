@@ -1,5 +1,5 @@
 let number = Math.trunc(Math.random() * 20) + 1;
-document.querySelector(".number").textContent = number;
+
 let score = 20;
 
 document.querySelector(".check").addEventListener("click", function () {
@@ -8,6 +8,9 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent = "No number";
   } else if (guess === number) {
     document.querySelector(".message").textContent = "Correct!";
+    document.querySelector(".number").textContent = number;
+    document.querySelector("body").style.backgroundColor = "#60b347";
+    document.querySelector(".number").style.width = "30rem";
   } else if (guess > number) {
     if (score > 1) {
       document.querySelector(".message").textContent = "Too high!";
@@ -29,4 +32,13 @@ document.querySelector(".check").addEventListener("click", function () {
   }
 });
 
-console.log(number);
+document.querySelector(".again").addEventListener("click", function () {
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".message").textContent = "Start guessing...";
+  document.querySelector(".guess").value = "";
+  document.querySelector(".number").textContent = "?";
+  number = Math.trunc(Math.random() * 20) + 1;
+  score = 20;
+  document.querySelector(".score").textContent = score;
+});
